@@ -7,7 +7,7 @@ controllers.controller('ICAOStatsController', ['$scope','$http', function($scope
 
         var alphabet = {};
         $http.get('json/icaoAlphabet.js').success(function(data) {
-            alphabet = setStats(data);
+            alphabet = data;
         });
 
         $scope.filterData = function(data) {
