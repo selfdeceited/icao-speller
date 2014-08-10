@@ -9,16 +9,12 @@
       <th>Letter</th>
       <th>English</th>
       <th>Russian</th>
-      <th>Kitten (why not)</th>
-
     </tr>
     <tr ng-repeat="letter in alphabet track by letter.id">
       <td>{{alphabet.indexOf(letter) + 1}} </td>
       <td><a href = "#/letters/{{letter.name}}">{{letter.name}}</a></td>
       <td><a href = "#/letters/{{letter.name}}">{{letter.value}}</a></td>
       <td><a href = "#/letters/{{letter.name}}">{{letter.russian}}</a></td>
-      <td><a href = "#/letters/{{letter.name}}"><img ng-src="{{letter.imageUrl}}"></a></td>
     </tr>
-
   </table>
 </section>
