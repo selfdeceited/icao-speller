@@ -20,6 +20,7 @@ controllers.controller('ICAOStatsController', ['$scope','$http', function($scope
                     "name": letterData.name,
                     "value": letterData.value,
                     "russian": letterData.russian,
+                    "morse": "soon",
                     "id": STATIC_ID
                 };
 
