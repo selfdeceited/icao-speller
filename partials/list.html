@@ -1,4 +1,6 @@
-﻿<div class="inputDiv">Enter the query: 
+﻿<a href="https://en.wikipedia.org/wiki/NATO_phonetic_alphabet">Wikipedia table</a>
+
+<div class="inputDiv">Enter the query: 
    <input class = "searchName" ng-model="search.name" autofocus ng-keyup="filterData(search.name)">
  </div>
 
@@ -9,12 +11,14 @@
       <th>Letter</th>
       <th>English</th>
       <th>Russian</th>
+      <th>Morse</th>
     </tr>
     <tr ng-repeat="letter in alphabet track by letter.id">
       <td>{{alphabet.indexOf(letter) + 1}} </td>
       <td><a href = "#/letters/{{letter.name}}">{{letter.name}}</a></td>
       <td><a href = "#/letters/{{letter.name}}">{{letter.value}}</a></td>
       <td><a href = "#/letters/{{letter.name}}">{{letter.russian}}</a></td>
+      <td><a href = "#/letters/{{letter.name}}">{{letter.morse}}</a></td>
     </tr>
   </table>
 </section>
