@@ -1,6 +1,7 @@
 var app = angular.module('ICAOAlphabetApp', [
   'ngRoute',
-  'ICAOControllers'
+  'ICAOControllers',
+  'ngSanitize'
 ]);
 
   app.config(['$routeProvider', 
