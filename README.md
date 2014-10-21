@@ -8,5 +8,4 @@ ICAO Speller is made to spell usual words, links, names, captions and terms usin
 
 ### Where can I user it? ###
 
-[Here](icaoalpha.apphb.com)
-
+[Here](https://icaoalpha.apphb.com)
