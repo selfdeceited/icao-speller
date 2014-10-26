@@ -142,6 +142,10 @@
         {"name": "0",
      "value": "Zero",
      "russian": "<b>Зи</b>-ро",
-     "morse": "- - - - -"}
+     "morse": "- - - - -"},
+      {"name": " ",
+     "value": "&nbsp;&nbsp;&nbsp;",
+     "russian": "&nbsp;&nbsp;&nbsp;",
+     "morse": "&nbsp;&nbsp;&nbsp;"}
 
   ]
