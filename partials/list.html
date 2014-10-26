@@ -1,0 +1,49 @@
+<div class="nonfooter">
+  <div class="header">
+    <div class="inner">
+      <div class="logo">
+        <i class="fa" ng-class="random >= 0.5 ? 'fa-plane': 'fa-paper-plane'">&nbsp;&nbsp;&nbsp;&nbsp; ICAO Speller</i>
+
+      </div>
+      <ul class="f32">
+      <li ng-class="outputLang=='value'?'activeFlag':''"
+          class="flag gb"
+          ng-click="toggleLang('value')" title = "English"></li>
+
+      <li ng-class="outputLang=='russian'?'activeFlag':''"
+          class="flag ru"
+          ng-click="toggleLang('russian')" title = "Russian"></li>
+
+      <li ng-class="outputLang=='morse'?'activeFlag':''"
+          class="flag morse"
+          ng-click="toggleLang('morse')" title = "Morse Code"></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="teaser">
+    <div class="inner">
+    <p>This tool can help you to easily spell links, addresses, names or any other text stuff in ICAO (NATO) phonetic alphabet, well-known all over the world.</p>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="inner">
+      <div class="inputDiv">
+        <input placeholder ="Enter the query" class = "searchName" ng-model="search.name" autofocus ng-keyup="filterData(search.name)">
+      </div>
+
+      <div>
+        <span ng-repeat="letter in alphabet track by letter.id" ng-bind-html="letter[outputLang]"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="inner">
+  <a href="https://en.wikipedia.org/wiki/NATO_phonetic_alphabet">Wikipedia table</a>
+      <a ng-click="runSpritz()" href ng-show="alphabet.length > 0">Run Spritz bookmarklet</a>
+    2014, Anthony Ryzhikov. See source on <a href="https://bitbucket.org/tonyRyzhikov/icao-speller"><i class ="fa fa-trash">&nbsp;&nbsp;&nbsp;&nbsp;BitBucket</i></a>
+  </div>
+</div>
