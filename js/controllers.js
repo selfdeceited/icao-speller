@@ -4,7 +4,10 @@ var controllers = angular.module('ICAOControllers', []);
 
 /*            ICAOStatsController                */
 controllers.controller('ICAOStatsController', ['$scope','$http', function($scope, $http) {
-
+        var SpritzSettings = {
+          clientId: "601814952b9e3c346",
+          redirectUri: "http://icaoalpha.abbhb.com/spritz/login_success.html"
+        }
 
         $scope.random = Math.random();
 
@@ -46,15 +49,6 @@ controllers.controller('ICAOStatsController', ['$scope','$http', function($scope
 
             };
 
-        }
-
-        $scope.runSpritz = function(){
-          var SpritzSettings = {
-                      clientId: "601814952b9e3c346",
-                      redirectUri: "http://icaoalpha.abbhb.com/spritz/login_success.html"
-                    }
-          $("div[data-role]").remove();
-          $(".content .inner").append("<div data-role='spritzer'></div>");
         }
 
 }]);
