@@ -47,19 +47,8 @@ controllers.controller('ICAOStatsController', ['$scope','$http', function($scope
         }
 
         $scope.runSpritz = function(){
-            sq=window.sq=window.sq||{};
-            if(sq.script){
-              sq.again();
-            }
-            else{
-              sq.bookmarkletVersion='0.3.0';
-              sq.iframeQueryParams={
-                host:'//squirt.io',
-                userId:'78410c39-0bc7-450f-99ac-8f65ece0a7ec',
-              };
-              sq.script=document.createElement('script');
-              sq.script.src=sq.iframeQueryParams.host+'/bookmarklet/frame.outer.js';
-              document.body.appendChild(sq.script);}
+
+
         }
 
 }]);
