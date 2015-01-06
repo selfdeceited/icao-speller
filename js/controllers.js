@@ -6,7 +6,7 @@ var controllers = angular.module('ICAOControllers', []);
 controllers.controller('ICAOStatsController', ['$scope','$http', function($scope, $http) {
         var SpritzSettings = {
             clientId: "601814952b9e3c346",
-            redirectUri: "http://icaoalpha.abbhb.com/spritz/login_success.html"
+            redirectUri: "http://icaoalpha.apphb.com/spritz/login_success.html"
           }
 
         var alphabet = {};
