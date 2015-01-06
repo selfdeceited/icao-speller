@@ -140,12 +140,22 @@ ul.f32 {
     background-size: 32px 32px;
 }
 
+[class*="spritzer-control-"] {
+padding-right: 15px;
+}
 
 
+a#runSpritz{
+  margin: 10px auto;
+  width: 80px;
+  padding: 5px;
+  display: block;
+}
 
-
-
-
+.wideinner{
+    width: 90%;
+    margin: 0 auto;
+}
 
 
 

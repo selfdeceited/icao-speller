@@ -5,9 +5,19 @@ var controllers = angular.module('ICAOControllers', []);
 /*            ICAOStatsController                */
 controllers.controller('ICAOStatsController', ['$scope','$http', function($scope, $http) {
         var SpritzSettings = {
-          clientId: "601814952b9e3c346",
-          redirectUri: "http://icaoalpha.abbhb.com/spritz/login_success.html"
-        }
+            clientId: "601814952b9e3c346",
+            redirectUri: "http://icaoalpha.abbhb.com/spritz/login_success.html"
+          }
+
+        $scope.spritzIsActivated = false;
+        var alphabet = {};
+        $http.get('json/icaoAlphabet.js').success(function(data) {
+            alphabet = data;
+            $scope.filterData($scope.text)
+        });
+
+
+        $scope.text = "One morning, when Gregor Samsa woke from troubled";
 
         $scope.random = Math.random();
 
@@ -23,10 +33,60 @@ controllers.controller('ICAOStatsController', ['$scope','$http', function($scope
 
         }
 
-        var alphabet = {};
-        $http.get('json/icaoAlphabet.js').success(function(data) {
-            alphabet = data;
-        });
+
+        $scope.runSpritz = function(){
+          if($scope.spritzIsActivated) return;
+          var spritzController = null;
+
+
+        	var onSpritzifySuccess = function(spritzText) {
+        		spritzController.startSpritzing(spritzText);
+        	};
+
+
+        	var onSpritzifyError = function(error) {
+        		alert("Unable to Spritz: " + error.message);
+        	};
+
+
+        	function onStartSpritzClick(event) {
+        		SpritzClient.spritzify($scope.text, "ru", onSpritzifySuccess, onSpritzifyError)
+        	};
+
+
+      		spritzController = new SPRITZ.spritzinc.SpritzerController({
+      		  placeholderText: {startText:'Let\'s Start!'},
+      		  redicleWidth: 600,
+      		  redicleHeight: 100,
+            controlTitles : {
+                play : 	    "Play",
+                rewind : 	    "To Beginning",
+                back : 	    "Previous",
+                forward :     "Next"
+            }
+      		});
+
+
+      		spritzController.attach($("#spritzer"));
+
+      		$(".spritzer-control-play").click(function(){
+      		  var alphabetData = $scope.alphabet.map(function(value){
+      		    return value[$scope.outputLang];
+
+      		  })
+      		  alphabetData = alphabetData.join(" ")
+      		  alphabetData = alphabetData.replace(/\&nbsp\;/g, " ")
+      		                             .replace(/\<b\>/g, "")
+        		                           .replace(/\<\/b\>/g,"")
+        		                           .replace(/[^a-zа-я0-9 ]/gi,"");
+
+      		  SpritzClient.spritzify(alphabetData.trim(), "ru", onSpritzifySuccess, onSpritzifyError)
+      		})
+
+          $scope.spritzIsActivated = true
+        }
+
+
 
         $scope.filterData = function(data) {
             $scope.alphabet = [];
