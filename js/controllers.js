@@ -9,6 +9,7 @@ controllers.controller('ICAOStatsController', ['$scope','$http', function($scope
             redirectUri: "http://icaoalpha.apphb.com/spritz/login_success.html"
           }
 
+        $scope.spritzIsActivated = false;
         var alphabet = {};
         $http.get('json/icaoAlphabet.js').success(function(data) {
             alphabet = data;
@@ -16,7 +17,7 @@ controllers.controller('ICAOStatsController', ['$scope','$http', function($scope
         });
 
 
-        $scope.text = "bollocks";
+        $scope.text = "One morning, when Gregor Samsa woke from troubled";
 
         $scope.random = Math.random();
 
@@ -34,7 +35,7 @@ controllers.controller('ICAOStatsController', ['$scope','$http', function($scope
 
 
         $scope.runSpritz = function(){
-
+          if($scope.spritzIsActivated) return;
           var spritzController = null;
 
 
@@ -51,13 +52,38 @@ controllers.controller('ICAOStatsController', ['$scope','$http', function($scope
         	function onStartSpritzClick(event) {
         		SpritzClient.spritzify($scope.text, "ru", onSpritzifySuccess, onSpritzifyError)
         	};
-        	//var SpritzClient = new SPRITZ.client.SpritzClient(SpritzSettings.clientId, "https://api.spritzinc.com/api-server/v1/" , SpritzSettings.redirectUri);
 
 
-      		spritzController = new SPRITZ.spritzinc.SpritzerController
-      		({placeholderText:{startText:'Click to Spritz'}});
+      		spritzController = new SPRITZ.spritzinc.SpritzerController({
+      		  placeholderText: {startText:'Let\'s Start!'},
+      		  redicleWidth: 600,
+      		  redicleHeight: 100,
+            controlTitles : {
+                play : 	    "Play",
+                rewind : 	    "To Beginning",
+                back : 	    "Previous",
+                forward :     "Next"
+            }
+      		});
+
 
       		spritzController.attach($("#spritzer"));
+
+      		$(".spritzer-control-play").click(function(){
+      		  var alphabetData = $scope.alphabet.map(function(value){
+      		    return value[$scope.outputLang];
+
+      		  })
+      		  alphabetData = alphabetData.join(" ")
+      		  alphabetData = alphabetData.replace(/\&nbsp\;/g, " ")
+      		                             .replace(/\<b\>/g, "")
+        		                           .replace(/\<\/b\>/g,"")
+        		                           .replace(/[^a-zа-я0-9 ]/gi,"");
+
+      		  SpritzClient.spritzify(alphabetData.trim(), "ru", onSpritzifySuccess, onSpritzifyError)
+      		})
+
+          $scope.spritzIsActivated = true
         }
 
 
