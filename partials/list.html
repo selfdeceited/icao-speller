@@ -30,13 +30,18 @@
   <div class="content">
     <div class="inner">
       <div class="inputDiv">
-        <input placeholder ="Enter the query" class = "searchName" ng-model="search.name" autofocus ng-keyup="filterData(search.name)">
+        <input placeholder ="Enter the query" class = "searchName"
+        ng-model="text" autofocus
+        ng-keyup="filterData(text)">
       </div>
 
       <div>
         <span ng-repeat="letter in alphabet track by letter.id" ng-bind-html="letter[outputLang]"></span>
       </div>
-          <div data-role="spritzer"></div>
+          <a id="runSpritz" ng-click="runSpritz()" href >Run Spritz</a>
+          <div class="wideinner">
+            <div id = "spritzer" data-role="spritzer"></div>
+          </div>
 
     </div>
   </div>
@@ -45,6 +50,6 @@
 <div class="footer">
   <div class="inner">
   <a href="https://en.wikipedia.org/wiki/NATO_phonetic_alphabet">Wikipedia table</a>
-    2014, Anthony Ryzhikov. See source on <a href="https://bitbucket.org/tonyRyzhikov/icao-speller"><i class ="fa fa-trash">&nbsp;&nbsp;&nbsp;&nbsp;BitBucket</i></a>
+    201<i ng-click = "showSpritz=true">4 - 2015</i>, Anthony Ryzhikov. See source on <a href="https://bitbucket.org/tonyRyzhikov/icao-speller"><i class ="fa fa-trash">&nbsp;&nbsp;&nbsp;&nbsp;BitBucket</i></a>
   </div>
 </div>
