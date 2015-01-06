@@ -5,9 +5,18 @@ var controllers = angular.module('ICAOControllers', []);
 /*            ICAOStatsController                */
 controllers.controller('ICAOStatsController', ['$scope','$http', function($scope, $http) {
         var SpritzSettings = {
-          clientId: "601814952b9e3c346",
-          redirectUri: "http://icaoalpha.abbhb.com/spritz/login_success.html"
-        }
+            clientId: "601814952b9e3c346",
+            redirectUri: "http://icaoalpha.abbhb.com/spritz/login_success.html"
+          }
+
+        var alphabet = {};
+        $http.get('json/icaoAlphabet.js').success(function(data) {
+            alphabet = data;
+            $scope.filterData($scope.text)
+        });
+
+
+        $scope.text = "bollocks";
 
         $scope.random = Math.random();
 
@@ -23,10 +32,35 @@ controllers.controller('ICAOStatsController', ['$scope','$http', function($scope
 
         }
 
-        var alphabet = {};
-        $http.get('json/icaoAlphabet.js').success(function(data) {
-            alphabet = data;
-        });
+
+        $scope.runSpritz = function(){
+
+          var spritzController = null;
+
+
+        	var onSpritzifySuccess = function(spritzText) {
+        		spritzController.startSpritzing(spritzText);
+        	};
+
+
+        	var onSpritzifyError = function(error) {
+        		alert("Unable to Spritz: " + error.message);
+        	};
+
+
+        	function onStartSpritzClick(event) {
+        		SpritzClient.spritzify($scope.text, "ru", onSpritzifySuccess, onSpritzifyError)
+        	};
+        	//var SpritzClient = new SPRITZ.client.SpritzClient(SpritzSettings.clientId, "https://api.spritzinc.com/api-server/v1/" , SpritzSettings.redirectUri);
+
+
+      		spritzController = new SPRITZ.spritzinc.SpritzerController
+      		({placeholderText:{startText:'Click to Spritz'}});
+
+      		spritzController.attach($("#spritzer"));
+        }
+
+
 
         $scope.filterData = function(data) {
             $scope.alphabet = [];
