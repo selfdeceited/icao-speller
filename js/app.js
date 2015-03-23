@@ -11,10 +11,6 @@ var app = angular.module('ICAOAlphabetApp', [
           templateUrl: 'partials/list.html',
           controller: 'ICAOStatsController'
         }).
-        when('/letters/:letterId', {
-          templateUrl: 'partials/details.html', 
-          controller: 'DetailsController'
-        }).
         otherwise({
           redirectTo: '/letters'
         });
