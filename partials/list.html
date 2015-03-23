@@ -6,15 +6,15 @@
 
       </div>
       <ul class="f32">
-      <li ng-class="outputLang=='value'?'activeFlag':''"
+      <li ng-class="lang=='value'?'activeFlag':''"
           class="flag gb"
           ng-click="toggleLang('value')" title = "English"></li>
 
-      <li ng-class="outputLang=='russian'?'activeFlag':''"
+      <li ng-class="lang=='russian'?'activeFlag':''"
           class="flag ru"
           ng-click="toggleLang('russian')" title = "Russian"></li>
 
-      <li ng-class="outputLang=='morse'?'activeFlag':''"
+      <li ng-class="lang=='morse'?'activeFlag':''"
           class="flag morse"
           ng-click="toggleLang('morse')" title = "Morse Code"></li>
       </ul>
@@ -30,15 +30,14 @@
   <div class="content">
     <div class="inner">
       <div class="inputDiv">
-        <input placeholder ="Enter the query" class = "searchName"
+        <input placeholder ="Enter the query" class = "searchName" ng-model="text" autofocus>
         ng-model="text" autofocus
         ng-keyup="filterData(text)">
       </div>
 
-      <div>
-        <span ng-repeat="letter in alphabet track by letter.id" ng-bind-html="letter[outputLang]"></span>
+      <div ng-bind-html="text | spell:lang:alphabet">
       </div>
-          <a id="runSpritz" ng-click="runSpritz()" href >Run Spritz</a>
+
           <div class="wideinner">
             <div id = "spritzer" data-role="spritzer"></div>
           </div>
