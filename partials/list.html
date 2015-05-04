@@ -2,21 +2,22 @@
   <div class="header">
     <div class="inner">
       <div class="logo">
-        <i class="fa" ng-class="random >= 0.5 ? 'fa-plane': 'fa-paper-plane'">&nbsp;&nbsp;&nbsp;&nbsp; ICAO Speller</i>
-
+        <i class="fa" ng-class="random >= 0.5 ? 'fa-plane': 'fa-paper-plane'">
+          &nbsp;&nbsp;&nbsp;&nbsp; <a id="index-link" ng-href = "index.html">ICAO Speller</a>
+        </i>
       </div>
       <ul class="f32">
-      <li ng-class="lang=='value'?'activeFlag':''"
+      <li ng-class="lang == 'value' ? 'activeFlag' : ''"
           class="flag gb"
-          ng-click="toggleLang('value')" title = "English"></li>
+          ng-click="lang = 'value'" title = "English"></li>
 
-      <li ng-class="lang=='russian'?'activeFlag':''"
+      <li ng-class="lang == 'russian' ? 'activeFlag' : ''"
           class="flag ru"
-          ng-click="toggleLang('russian')" title = "Russian"></li>
+          ng-click="lang = 'russian'" title = "Russian"></li>
 
-      <li ng-class="lang=='morse'?'activeFlag':''"
+      <li ng-class="lang == 'morse' ? 'activeFlag' : ''"
           class="flag morse"
-          ng-click="toggleLang('morse')" title = "Morse Code"></li>
+          ng-click="lang = 'morse'" title = "Morse Code"></li>
       </ul>
     </div>
   </div>
@@ -32,7 +33,7 @@
       <div class="inputDiv">
         <input placeholder ="Enter the query" class = "searchName" ng-model="text" autofocus>
       </div>
-      <div ng-bind-html="text | spell:lang:alphabet">
+      <div id="spell-body" ng-bind-html="text | spell : lang : alphabet"></div>
   </div>
 </div>
 

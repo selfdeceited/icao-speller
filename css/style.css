@@ -102,18 +102,23 @@ input.searchName{
 	width: 100% !important;
   margin: 13px;
   padding: 10px;
-  border-radius: 13px;
+  border-radius: 5px;
   font-size:20px;
 }
 
 span{
-  padding:2px;
+  padding:0px;
   font-size:16px;
+  margin: -1px;
+}
+
+b{
+  color: rgba(187, 62, 62, 1);
 }
 
 .inner p{
   padding-top: 10px;
-  color: rgb(112, 112, 126);;
+  color: rgb(112, 112, 126);
   text-transform: none;
   font-size:14px;
   font: 14px/1 'Open Sans', sans-serif;
@@ -140,24 +145,18 @@ ul.f32 {
     background-size: 32px 32px;
 }
 
-[class*="spritzer-control-"] {
-padding-right: 15px;
-}
-
-
-a#runSpritz{
-  margin: 10px auto;
-  width: 80px;
-  padding: 5px;
-  display: block;
-}
-
 .wideinner{
     width: 90%;
     margin: 0 auto;
 }
 
+#index-link, #index-link:hover{
+  color: white;
+  text-decoration: none;
+}
 
-
+#spell-body{
+  margin-left: 15px;
+}
 
 
