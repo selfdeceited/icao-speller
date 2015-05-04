@@ -53,7 +53,10 @@ p {
   background: url('http://abload.de/img/pattern7rkfs.png') #567;
   box-shadow: inset 0 -3px 3px rgba(0,0,0,.1);
 }
-
+.logo{
+  width: 70%;
+  display: inline-block;
+}
 .logo i{
   position: relative;
   padding-left: 50px;
@@ -127,7 +130,7 @@ b{
 ul.f32 {
   display:inline-block;
   float:right;
-  margin-top: 34px;
+  margin-top: 40px;
 }
 
 .flag{
@@ -135,12 +138,12 @@ ul.f32 {
 }
 
 .activeFlag{
-  outline: 2px solid #96B0AC;
+  outline: 2px solid #979FA8;
 }
 
 .morse{
   background:
-    url(http://icon.downv.com/32x32/8/64/1781690.e37a21801747515e30b477cc3dc748fa.gif)
+    url(http://icon.softwaresea.com/32x32/7/378/1688580.4475dab1c2146ff9c192c6c9863ffae4.gif)
     no-repeat 100%  !important;
     background-size: 32px 32px;
 }
