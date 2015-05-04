@@ -1,6 +1,6 @@
 angular.module('ICAOControllers', ['ngSanitize'])
 .controller('ICAOStatsController', ['$scope','$http', function($scope, $http) {
-        $http.get('http://api.icndb.com/jokes/random').
+        $http.get('http://api.icndb.com/jokes/random?escape=javascript').
           success(function(data, status, headers, config) {
             $scope.text =  data.value.joke;
           }).
@@ -35,7 +35,7 @@ angular.module('ICAOControllers', ['ngSanitize'])
         }
     }
     if(!spelledCorrectly){
-      this.push('<span>' + symbol + '</span>');
+      this.push('<span class="symbol-not-found">' + symbol + '</span>');
     }
     }, result);
     return result.join(' ');
