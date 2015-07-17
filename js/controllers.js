@@ -30,7 +30,12 @@ angular.module('ICAOControllers', ['ngSanitize'])
       var spelledCorrectly = false;
       for (var i = 0; i < alphabet.length; i++) {
         if(alphabet[i].name === symbol.toUpperCase()){
-            this.push('<span>' + alphabet[i][lang] + '</span>');
+            if(symbol === " "){
+              this.push('<span>' + alphabet[i][lang] + '</span>');
+            }
+            else{
+              this.push('<span class="tooltip-container"> <span class="tooltip">' + symbol.toUpperCase() + '</span>' + alphabet[i][lang] + '</span>');
+            }
             spelledCorrectly = true;
         }
     }
