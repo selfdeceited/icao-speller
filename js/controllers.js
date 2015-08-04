@@ -28,20 +28,24 @@ angular.module('ICAOControllers', ['ngSanitize'])
     var result = [];
     angular.forEach(input, function(symbol) {
       var spelledCorrectly = false;
-      for (var i = 0; i < alphabet.length; i++) {
-        if(alphabet[i].name === symbol.toUpperCase()){
-            if(symbol === " "){
-              this.push('<span>' + alphabet[i][lang] + '</span>');
-            }
-            else{
-              this.push('<span class="tooltip-container"> <span class="tooltip">' + symbol.toUpperCase() + '</span>' + alphabet[i][lang] + '</span>');
-            }
-            spelledCorrectly = true;
-        }
-    }
-    if(!spelledCorrectly){
-      this.push('<span class="symbol-not-found">' + symbol + '</span>');
-    }
+      
+      var lettersForSymbol = alphabet.filter(function(letter){
+        return letter.name === symbol.toUpperCase();
+      });
+      
+      if(lettersForSymbol.length > 0){
+        var selectedLetter = lettersForSymbol[0];
+        var htmlTemplateToLoad = symbol === " "
+            ? '<span>' + selectedLetter[lang] + '</span>'
+            : '<span class="tooltip-container"> <span class="tooltip">' + selectedLetter.name  + '</span>' + selectedLetter[lang]  + '</span>';
+            
+          this.push(htmlTemplateToLoad);
+          spelledCorrectly = true;
+      }
+      
+      if (!spelledCorrectly){
+        this.push('<span class="symbol-not-found">' + symbol + '</span>');
+      }
     }, result);
     return result.join(' ');
   };
