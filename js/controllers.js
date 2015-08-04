@@ -7,17 +7,10 @@ angular.module('ICAOControllers', ['ngSanitize'])
           error(function(data, status, headers, config) {
             $scope.text =  "One morning, when Gregor Samsa woke from troubled dream";
           });
+          
         $scope.lang = "value";
-
-        $scope.toggleLang = function(lang){
-          if(lang){
-            $scope.lang = lang;
-          } else{
-            $scope.lang = 'value';
-          }
-        };
-
         $scope.alphabet = {};
+        
         $http.get('json/icaoAlphabet.js').success(function(data) {
             $scope.alphabet = data;
         });
