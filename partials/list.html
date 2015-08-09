@@ -1,4 +1,5 @@
-     <md-toolbar layout="row" class="md-default-theme">
+<md-content layout-padding="">
+       <md-toolbar layout="row" class="md-default-theme">
       <div layout-align-gt-sm="center" class="logo md-toolbar-tools" layout="column">
          <i class="fa" ng-class="random >= 0.5 ? 'fa-plane': 'fa-paper-plane'" style="color:white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
           
@@ -27,20 +28,25 @@
  
 
   <div layout="row" flex="70" offset="15" class="layout-row">
-    <div flex="100">This tool can help you to easily spell links, addresses, names or any other text stuff in ICAO (NATO) phonetic alphabet, well-known all over the world.</div>
+    <div flex="100">This page can help you to easily 'spell' links, addresses, names or any other text stuff in ICAO (NATO) phonetic alphabet, well-known all over the world.</div>
   </div>
   <div layout="row" flex="70" offset="15" class="layout-row">
     <div flex="100">If you see the symbol is <k class="symbol-not-found">highlighted</k>, it may be not added or even doesn't exist in the alphabet.</div>
   </div>
 
   <div layout="row" flex="80" offset="10" class="input-container">
-      <input placeholder ="Enter the query" class = "searchName" ng-model="text" autofocus>
+  <md-input-container flex="100" layout-gt-sm="row" class="md-default-theme" md-no-float>
+      <label for="spell-input" ng-show="text.length > 0">Enter the query</label>    
+      <input id="spell-input" class = "md-input searchName" ng-model="text" title="{{text}}" autofocus placeholder="Enter the query" >
+      </md-input-container>
   </div>
+
+
+    
 
   <div layout="row" flex="70" offset="10">
     <div id="spell-body" ng-bind-html="text | spell : lang : alphabet" style="margin:40px;"></div>  
   </div>
-  
   
 <md-toolbar layout="row" class="md-default-theme footer">
   <div layout="column" flex offset="15" style="font-size:16px;">
@@ -61,3 +67,6 @@
     
         
   </md-toolbar>
+
+
+<md-content>
