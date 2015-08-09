@@ -1,11 +1,11 @@
-<div class="nonfooter">
-  <div class="header">
-    <div class="inner">
-      <div class="logo">
-        <i class="fa" ng-class="random >= 0.5 ? 'fa-plane': 'fa-paper-plane'">
-          &nbsp;&nbsp;&nbsp;&nbsp; <a id="index-link" ng-href = "index.html">ICAO Speller</a>
-        </i>
+     <md-toolbar layout="row" class="md-default-theme">
+      <div layout-align-gt-sm="center" class="logo md-toolbar-tools" layout="column">
+         <i class="fa" ng-class="random >= 0.5 ? 'fa-plane': 'fa-paper-plane'" style="color:white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+          
+          <a id="index-link" ng-href = "index.html">ICAO Speller</a>
+        
       </div>
+      <div layout="column" flex>
       <ul class="f32">
       <li ng-class="lang == 'value' ? 'activeFlag' : ''"
           class="flag gb"
@@ -19,36 +19,45 @@
           class="flag morse"
           ng-click="lang = 'morse'" title = "Morse Code"></li>
       </ul>
-    </div>
-  </div>
-
-  <div class="teaser">
-    <div class="inner">
-    <p>This tool can help you to easily spell links, addresses, names or any other text stuff in ICAO (NATO) phonetic alphabet, well-known all over the world.</p>
-    <p>If you see the symbol is <k class="symbol-not-found">highlighted</k>, it may be not added or even doesn't exist in the alphabet.</p>
-    </div>
-  </div>
-
-  <div class="content">
-    <div class="inner">
-      <div class="inputDiv">
-        <input placeholder ="Enter the query" class = "searchName" ng-model="text" autofocus>
       </div>
-      <div id="spell-body" ng-bind-html="text | spell : lang : alphabet"></div>
-  </div>
-</div>
+      <div layout="column" flex style="margin-top:20px;">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://icaoalpha.apphb.com" data-text="Check out ICAO Speller" data-via="stumbleagain" data-size="medium" data-dnt="true">Tweet</a>
+      </div>
+    </md-toolbar>
+ 
 
-<div class="footer">
-  <div class="inner">
+  <div layout="row" flex="70" offset="15" class="layout-row">
+    <div flex="100">This tool can help you to easily spell links, addresses, names or any other text stuff in ICAO (NATO) phonetic alphabet, well-known all over the world.</div>
+  </div>
+  <div layout="row" flex="70" offset="15" class="layout-row">
+    <div flex="100">If you see the symbol is <k class="symbol-not-found">highlighted</k>, it may be not added or even doesn't exist in the alphabet.</div>
+  </div>
+
+  <div layout="row" flex="80" offset="10" class="input-container">
+      <input placeholder ="Enter the query" class = "searchName" ng-model="text" autofocus>
+  </div>
+
+  <div layout="row" flex="70" offset="10">
+    <div id="spell-body" ng-bind-html="text | spell : lang : alphabet" style="margin:40px;"></div>  
+  </div>
+  
+  
+<md-toolbar layout="row" class="md-default-theme footer">
+  <div layout="column" flex offset="15" style="font-size:16px;">
     2014 &mdash; 2015, Tony Ryzhikov. 
+    </div>
+    <div layout="column" flex="10" offset="2">
+  
     <a href="mailto:anthony.ryzhikov@gmail.com">
       <i class="fa fa-envelope">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mail me</i>
-    </a>
+    </a>    
     
-    <a href="https://bitbucket.org/tonyRyzhikov/icao-speller">
+    </div>
+    <div layout="column" flex="10" offset="2">
+      <a href="https://bitbucket.org/tonyRyzhikov/icao-speller">
       <i class ="fa fa-trash">&nbsp;&nbsp;&nbsp;&nbsp;BitBucket</i>
     </a>
+    </div>
     
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://icaoalpha.apphb.com" data-text="Check out ICAO Speller" data-via="stumbleagain" data-size="medium" data-dnt="true">Tweet</a>
-  </div>
-</div>
+        
+  </md-toolbar>
