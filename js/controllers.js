@@ -1,13 +1,17 @@
 angular.module('ICAOControllers', ['ngSanitize'])
-.controller('ICAOStatsController', ['$scope','$http', function($scope, $http) {
-        $http.get('http://api.icndb.com/jokes/random?escape=javascript').
-          success(function(data, status, headers, config) {
-            $scope.text =  data.value.joke;
-          }).
-          error(function(data, status, headers, config) {
-            $scope.text =  "One morning, when Gregor Samsa woke from troubled dream";
-          });
-          
+.controller('ICAOStatsController', ['$scope','$http', '$location', function($scope, $http, $location) {
+  
+        if ($location.search()['text']) {
+          $scope.text =  $location.search()['text'];
+        } else {
+          $http.get('http://api.icndb.com/jokes/random?escape=javascript').
+            success(function(data, status, headers, config) {
+              $scope.text =  data.value.joke;
+            }).
+            error(function(data, status, headers, config) {
+              $scope.text =  "One morning, when Gregor Samsa woke from troubled dream";
+            });
+        }
         $scope.lang = "value";
         $scope.alphabet = {};
         
