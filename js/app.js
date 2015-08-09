@@ -1,7 +1,8 @@
 var app = angular.module('ICAOAlphabetApp', [
   'ui.router',
   'ICAOControllers',
-  'ngSanitize'
+  'ngSanitize',
+  'firebase'
 ]);
 app.locationSearch = {};
 
