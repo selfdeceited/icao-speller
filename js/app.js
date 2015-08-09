@@ -1,17 +1,17 @@
 var app = angular.module('ICAOAlphabetApp', [
-  'ngRoute',
+  'ui.router',
   'ICAOControllers',
   'ngSanitize'
 ]);
+app.locationSearch = {};
 
-  app.config(['$routeProvider', 
-  function($routeProvider) {
-    $routeProvider.
-        when('/letters', {
-          templateUrl: 'partials/list.html',
-          controller: 'ICAOStatsController'
-        }).
-        otherwise({
-          redirectTo: '/letters'
-        });
-  }]);
+  app.config(['$stateProvider', '$urlRouterProvider',
+    function($stateProvider, $urlRouterProvider) {
+         $urlRouterProvider.otherwise('/spell');
+         $stateProvider
+          .state('spell', {
+              url: '/spell',
+              templateUrl: 'partials/list.html',
+              controller: 'ICAOStatsController'
+          });
+    }]);
