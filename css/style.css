@@ -135,7 +135,9 @@ md-input-container:not(.md-input-has-value) input:not(:focus){
   color:gray !important;
 }
 
-
+md-toolbar.footer div[layout="row"] a{
+  margin:10px;
+}
 /**
  * Tooltip Styles
  */
