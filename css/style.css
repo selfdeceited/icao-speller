@@ -20,8 +20,8 @@ md-toolbar.md-default-theme {
 }
 a.twitter-share-button{
   /*fallback for devices without iFrame handling*/
-  color:white;
-  text-decoration:none;
+  color:white !important;
+  text-decoration:none !important;
 }
 md-input-container:not(.md-input-invalid) > label {
   top: -28px;

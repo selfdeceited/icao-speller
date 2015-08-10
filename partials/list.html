@@ -1,6 +1,6 @@
 <md-content>
 <md-toolbar layout="row" class="md-default-theme">
-	<div layout-align-gt-sm="center" class="logo md-toolbar-tools" layout="column">
+	<div flex layout-align="center center" class="logo md-toolbar-tools" layout="column">
 		<i class="fa" ng-class="random >= 0.5 ? 'fa-plane': 'fa-paper-plane'" style="color: white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
 
 		<a id="index-link" ng-href="index.html">ICAO Speller</a>
@@ -39,7 +39,7 @@
 
 <div layout="row" flex="80" offset="10" class="input-container">
 	<md-input-container flex="100" layout-gt-sm="row" class="md-default-theme" md-no-float>
-		<label for="spell-input" ng-show="text.length > 0">Enter the query</label>
+		<label for="spell-input" ng-show="text.length > 0">Enter anything</label>
 		<input id="spell-input" class="md-input searchName" ng-model="text" title="{{text}}" autofocus placeholder="Enter the query">
 	</md-input-container>
 </div>
@@ -62,7 +62,7 @@
 			</div>
 			<div>
 				<a href="https://bitbucket.org/tonyRyzhikov/icao-speller">
-					<i class="fa fa-bitbucket"><k>&nbsp;&nbsp;&nbsp;&nbsp;BitBucket</span></i>
+					<i class="fa fa-bitbucket"><k>&nbsp;&nbsp;&nbsp;&nbsp;BitBucket</k></i>
 				</a>
 			</div>
 		</div>
