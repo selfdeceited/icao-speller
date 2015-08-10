@@ -1,14 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 @import url('http://weloveiconfonts.com/api/?family=fontawesome');
 
-
-@media screen and (max-width: 950px){
-  a.twitter-share-button, #twitter-widget-0{
-    display:none;
+@media screen and (max-width: 585px){
+  #index-link{
+    font-size:18px !important;
   }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 500px){
+  a.twitter-share-button, #twitter-widget-0{
+    display:none;
+  }
   md-toolbar.footer div[layout="row"] a i k{
     display:none;
   }
@@ -46,7 +48,7 @@ md-input-container:not(.md-input-invalid) > label {
 .footer a, footer a:hover{
   color:white;
   text-decoration: none;
-  font-size:12px;
+  font-size:14px;
   display: inline-block;
 }
 
@@ -56,7 +58,6 @@ md-input-container:not(.md-input-invalid) > label {
 }
 .logo i{
   position: relative;
-  padding-left: 50px;
   line-height: 120px;
   font-size: 30px;
   font-weight: 300;

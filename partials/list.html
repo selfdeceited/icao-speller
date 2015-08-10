@@ -1,6 +1,6 @@
 <md-content>
 <md-toolbar layout="row" class="md-default-theme">
-	<div flex layout-align="center center" class="logo md-toolbar-tools" layout="column">
+	<div flex layout-align="center center" class="logo md-toolbar-tools" layout="column" style="padding: 0 !important">
 		<i class="fa" ng-class="random >= 0.5 ? 'fa-plane': 'fa-paper-plane'" style="color: white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
 
 		<a id="index-link" ng-href="index.html">ICAO Speller</a>
@@ -9,7 +9,7 @@
 	<div layout="column" flex>
 	  <div layout="row" layout-align="center center">
 	    <div>
-	    <ul class="f32">
+	    <ul class="f32" style="padding: 0 !important">
 			<li ng-class="lang == 'value' ? 'activeFlag' : ''"
 			    class="flag gb"
 			    ng-click="lang = 'value'" title="English"></li>
@@ -50,10 +50,10 @@
 </div>
 
 <md-toolbar layout="row" class="md-default-theme footer">
-	<div layout="column" flex offset="5" style="font-size: 16px;">
+	<div layout="column" layout-align="center center" flex offset="5" style="font-size: 14px;">
 		2014 &mdash; 2015, Tony Ryzhikov.
 	</div>
-	<div layout="column" flex="30" offset="10">
+	<div layout="column" flex="40" offset="10">
 		<div layout="row" layout-align="center center">
 			<div>
 				<a href="mailto:anthony.ryzhikov@gmail.com">
