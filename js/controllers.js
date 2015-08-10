@@ -33,7 +33,7 @@ angular.module('ICAOControllers', ['ngSanitize'])
         if(selectedLetter){
         var htmlTemplateToLoad = symbol === " "
             ? '<span>' + selectedLetter[lang] + '</span>'
-            : '<span class="tooltip-container"> <span class="tooltip">' + symbol.toUpperCase()  + '</span>' + selectedLetter[lang]  + '</span>';
+            : '<span class="tooltip-container tooltip" title="'+ symbol.toUpperCase()+'">' + selectedLetter[lang]  + '</span>';
             
           this.push(htmlTemplateToLoad);
           spelledCorrectly = true;
