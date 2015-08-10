@@ -1,11 +1,28 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 @import url('http://weloveiconfonts.com/api/?family=fontawesome');
 
+
+@media screen and (max-width: 950px){
+  a.twitter-share-button, #twitter-widget-0{
+    display:none;
+  }
+}
+
+@media screen and (max-width: 600px){
+  md-toolbar.footer div[layout="row"] a i k{
+    display:none;
+  }
+}
+
 md-toolbar.md-default-theme {
   background-color: rgb(65, 83, 182);
   color: rgba(255,255,255,0.87);
 }
-
+a.twitter-share-button{
+  /*fallback for devices without iFrame handling*/
+  color:white;
+  text-decoration:none;
+}
 md-input-container:not(.md-input-invalid) > label {
   top: -28px;
   font-size: 0.8em;
@@ -13,6 +30,7 @@ md-input-container:not(.md-input-invalid) > label {
   position: absolute;
   left:15px;
 }
+
 .footer {
   position: fixed;
   height: 50px;
