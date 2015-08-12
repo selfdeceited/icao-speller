@@ -43,6 +43,7 @@ md-input-container:not(.md-input-invalid) > label {
   background: #f5f5f5;
   width: 100%;
   bottom: 0;
+  z-index: 1000;
 }
 
 .footer a, footer a:hover{
@@ -63,6 +64,7 @@ md-input-container:not(.md-input-invalid) > label {
   font-weight: 300;
   text-transform: uppercase;
   color: #fff;
+  margin-left:10px;
 }
 
 .lower{
@@ -143,6 +145,8 @@ ul.f32 {
 
 .symbol-not-found{
   background-color:yellow;
+  position: relative;
+  display: inline-block;
 }
 
 .layout-row{
