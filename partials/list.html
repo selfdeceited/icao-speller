@@ -1,7 +1,7 @@
 <md-content>
 <md-toolbar layout="row" class="md-default-theme">
 	<div flex layout-align="center center" class="logo md-toolbar-tools" layout="column" style="padding: 0 !important">
-		<i class="fa" ng-class="random >= 0.5 ? 'fa-plane': 'fa-paper-plane'" style="color: white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+		<i class="fa fa-paper-plane" style="color: white"></i>
 
 		<a id="index-link" ng-href="index.html">ICAO Speller</a>
 
@@ -22,7 +22,7 @@
 			    class="flag morse"
 			    ng-click="lang = 'morse'" title="Morse Code"></li>
 		</ul></div>
-		<div style="margin-left: 20px;margin-right:30px;">	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://icaoalpha.apphb.com" data-text="Check out ICAO Speller" data-via="stumbleagain" data-size="medium" data-dnt="true">Tweet</a></div>
+		<div id="twitter-wrapper" style="margin-left: 20px;margin-right:30px;">	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://icaoalpha.apphb.com" data-text="Check out ICAO Speller" data-via="stumbleagain" data-size="medium" data-dnt="true">Tweet</a></div>
 	  </div>
 		
 	</div>
@@ -39,8 +39,8 @@
 
 <div layout="row" flex="80" offset="10" class="input-container">
 	<md-input-container flex="100" layout-gt-sm="row" class="md-default-theme" md-no-float>
-		<label for="spell-input" ng-show="text.length > 0">Enter anything</label>
-		<input id="spell-input" class="md-input searchName" ng-model="text" title="{{text}}" autofocus placeholder="Enter the query">
+		<label for="spell-input" ng-show="text.length > 0">Keep typing, bro!</label>
+		<input id="spell-input" class="md-input searchName" ng-model="text" title="{{text}}" autofocus placeholder="Start typing">
 	</md-input-container>
 </div>
 
@@ -50,7 +50,7 @@
 </div>
 
 <md-toolbar layout="row" class="md-default-theme footer">
-	<div layout="column" layout-align="center center" flex offset="5" style="font-size: 14px;">
+	<div layout="column" layout-align="center center" flex offset="5" style="font-size: 14px;" id="author-info">
 		2014 &mdash; 2015, Tony Ryzhikov.
 	</div>
 	<div layout="column" flex="40" offset="10">
