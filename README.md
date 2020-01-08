@@ -10,4 +10,4 @@ You can see how usual text can be spelled in Russian and English transaltions of
 
 ### Where can I try it? ###
 
-[Here](http://icaoalpha.apphb.com)
+(TODO)
